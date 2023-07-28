@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
+import './home.css'
 const Home = () => {
 
   const navigate=useNavigate();
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div className='homePageWrapper'>
         <div className='formWrapper'>
-            <h4 className='mainLabel'>Paste Invitation Room ID</h4>
+            <div className='mainLabel'>Paste Invitation Room ID</div> 
             <div className='inputGroup'>
                 <input type='text' className='inputBox' placeholder='ROOM ID' value={roomId} 
                 onChange={(e)=>{
@@ -46,17 +46,17 @@ const Home = () => {
                     setUsername(e.target.value);
                 }}
                 />
-                <button onClick={joinRoom}>Join</button>
-                <span>
+                <button className='buttonstyle' onClick={joinRoom}>Join</button>
+                <div>
                     If you don't have an invite then create &nbsp;&nbsp;
                     <a onClick={createNewRoom} href="">new room</a>
-                </span>
+                </div>
             </div>
 
         </div>
-        <footer>
+        {/* <footer>
             <h4>Built By <a href='https://github.com/Divyanshj'>Divyansh Jain</a></h4>
-        </footer>
+        </footer> */}
     </div>
   )
 }
