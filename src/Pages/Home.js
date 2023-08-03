@@ -24,11 +24,18 @@ const Home = () => {
     }
 
     // redirect
-    // navigate(`/editor/${roomId}`,{
-    //     state{
-    //         username,
-    //     },
-    // })
+    navigate(`/editor/${roomId}`,{
+        state:{
+            username,
+        },
+    });
+  };
+
+
+  const handleInputEnter=(e)=>{
+    if(e.code==="Enter"){
+        joinRoom();
+    }
   }
 
 
@@ -40,11 +47,13 @@ const Home = () => {
                 <input type='text' className='inputBox' placeholder='ROOM ID' value={roomId} 
                 onChange={(e)=>{
                     setRoomId(e.target.value);
-                }}/>
+                }}
+                onKeyUp={handleInputEnter}/>
                 <input type='text' className='inputBox' placeholder='USERNAME' value={username}
                 onChange={(e) =>{
                     setUsername(e.target.value);
                 }}
+                onKeyUp={handleInputEnter}
                 />
                 <button onClick={joinRoom}>Join</button>
                 <span>
